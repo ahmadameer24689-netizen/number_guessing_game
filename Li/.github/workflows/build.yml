@@ -11,16 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
+      - name: Set up Flutter and get dependencies
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.x'
           channel: 'stable'
-          cache: true
-          project-path: .
-
-      - name: Install dependencies
-        run: flutter pub get
+          pub-get: true
 
       - name: Build APK
         run: flutter build apk --release
