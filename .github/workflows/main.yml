@@ -14,13 +14,16 @@ jobs:
         with:
           flutter-version: '3.19.x'
           channel: 'stable'
+          project-path: Li
 
       - run: flutter pub get
+        working-directory: Li
 
       - run: flutter build apk --release
+        working-directory: Li
 
       - uses: actions/upload-artifact@v4
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: Li/build/app/outputs/flutter-apk/app-release.apk
           
