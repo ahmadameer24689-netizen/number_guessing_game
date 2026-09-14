@@ -17,6 +17,7 @@ jobs:
           flutter-version: '3.19.x'
           channel: 'stable'
           cache: true
+          project-path: .
 
       - name: Install dependencies
         run: flutter pub get
