@@ -16,10 +16,13 @@ jobs:
           channel: 'stable'
 
       - run: flutter pub get
+        working-directory: .
+
       - run: flutter build apk --release
+        working-directory: .
 
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: '**/build/app/outputs/flutter-apk/app-release.apk'
           
