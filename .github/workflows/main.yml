@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Li
     steps:
       - uses: actions/checkout@v4
 
@@ -15,12 +18,11 @@ jobs:
           flutter-version: '3.19.x'
           channel: 'stable'
 
-      - name: Get dependencies
+      - name: Install dependencies
         run: flutter pub get
-        working-directory: Li
 
-      - name: Build APK Release
-        run: flutter build apk --release --target=Li/lib/main.dart
+      - name: Build APK
+        run: flutter build apk --release
 
       - uses: actions/upload-artifact@v4
         with:
