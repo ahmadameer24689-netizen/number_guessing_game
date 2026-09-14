@@ -15,13 +15,11 @@ jobs:
           flutter-version: '3.19.x'
           channel: 'stable'
 
-      - name: Install dependencies
-        run: flutter pub get
-        working-directory: Li
+      - name: Get dependencies
+        run: cd Li && flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release --target=lib/main.dart
-        working-directory: Li
+      - name: Build APK Release
+        run: cd Li && flutter build apk --release --target=lib/main.dart
 
       - uses: actions/upload-artifact@v4
         with:
